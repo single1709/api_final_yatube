@@ -9,10 +9,14 @@ v1_router = DefaultRouter()
 
 app_name = 'api'
 
-v1_router.register('posts', PostViewSet, basename='Post')
-v1_router.register(r'posts/(?P<post_id>\d+)/comments', CommentViewSet, basename='Post')
 v1_router.register('groups', GroupViewSet, basename='Group')
 v1_router.register('follow', FollowViewSet, basename='Follow')
+v1_router.register('posts', PostViewSet, basename='Post')
+v1_router.register(
+    r'posts/(?P<post_id>\d+)/comments',
+    CommentViewSet,
+    basename='Post'
+)
 
 urlpatterns = [
     path('v1/', include(v1_router.urls)),
