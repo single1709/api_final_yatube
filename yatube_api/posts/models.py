@@ -18,9 +18,6 @@ class Follow(models.Model):
         related_name='following',
     )
 
-    def __str__(self):
-        return self.user.username
-
     class Meta:
         constraints = [
             models.UniqueConstraint(
@@ -28,6 +25,9 @@ class Follow(models.Model):
                 name='unique_user_following'
             )
         ]
+
+    def __str__(self):
+        return self.user.username
 
 
 class Group(models.Model):
